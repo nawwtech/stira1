@@ -17,7 +17,7 @@ export async function POST(request: Request) {
 
     if (!GROQ_API_KEY) {
       return NextResponse.json(
-        { error: "API key Groq belum diatur. Tambahkan GROQ_API_KEY pada Environment Variables Vercel." },
+        { error: "API key Groq belum diatur. Tambahkan GROQ_API_KEY di Environment Variables Vercel." },
         { status: 503 }
       );
     }
@@ -48,14 +48,14 @@ export async function POST(request: Request) {
       cache: "no-store",
       signal: AbortSignal.timeout(30000),
       body: JSON.stringify({
-        model: "openai/gpt-oss-120b",
+        model: "mixtral-8x7b-32768",
         temperature: 0.55,
         max_completion_tokens: 700,
         messages: [
           {
             role: "system",
             content:
-              "Nama kamu Asisten Muhammad Nawal. Jawab dengan bahasa Indonesia yang natural, hangat, jelas, dan tidak kaku. Jadilah teman diskusi yang membantu memahami konteks, bukan berpura-pura sebagai manusia. Jawaban harus berlandaskan konteks yang diberikan. Jangan mengarang fakta, angka, atau kutipan. Jika informasi tidak tersedia, katakan dengan jujur dan sarankan memeriksa sumber asli. Bedakan dugaan, opini, dan fakta. Jangan mengklaim sudah menonton video; kamu hanya menerima ringkasan dan metadata berikut. Konteks halaman: " +
+              "Nama kamu Asisten Si Cerdas Buatan Muhammad Nawal. Gunakan bahasa Indonesia yang terasa alami, ramah, dan mudah dipahami—seperti teman yang menjelaskan sesuatu dengan jelas, bukan tulisan formal yang kaku. Sesuaikan panjang jawaban dengan pertanyaan; utamakan penjelasan yang konkret, contoh sederhana, dan susunan yang enak dibaca. Jangan mengarang fakta, angka, atau kutipan. Kalau informasi belum tersedia, bilang terus terang dan arahkan pengguna untuk memeriksa sumber yang tepercaya. Bedakan fakta, opini, dan dugaan. Jangan mengaku sudah menonton video; kamu hanya menerima ringkasan dan metadata berikut. Konteks halaman: " +
               context,
           },
           ...history,
