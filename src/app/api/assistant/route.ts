@@ -17,7 +17,7 @@ export async function POST(request: Request) {
 
     if (!GROQ_API_KEY) {
       return NextResponse.json(
-        { error: "API key Groq belum diatur. Tambahkan GROQ_API_KEY di Environment Variables Vercel." },
+        { error: "API key Groq belum diatur. Tambahkan GROQ_API_KEY pada Environment Variables Vercel." },
         { status: 503 }
       );
     }
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
       cache: "no-store",
       signal: AbortSignal.timeout(30000),
       body: JSON.stringify({
-        model: "mixtral-8x7b-32768",
+        model: "openai/gpt-oss-120b",
         temperature: 0.55,
         max_completion_tokens: 700,
         messages: [
