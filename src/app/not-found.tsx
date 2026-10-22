@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound(){return <section className="site-wrap py-24 text-center"><p className="eyebrow text-[var(--blue)]">404 / Tidak ditemukan</p><h1 className="mt-4 text-5xl font-black tracking-[-.06em]">Cerita ini belum ada.</h1><p className="mt-4 text-[var(--muted)]">Coba kembali ke halaman jelajah.</p><Link href="/issues" className="mt-7 inline-flex rounded-full bg-[#222720] px-5 py-3 text-sm font-bold text-white">Jelajahi cerita</Link></section>}
